@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <app-tv-show [movie]="movie" (selected)="nothing($event)"></app-tv-show>
+      <div class="card-action">
+        <a class="btn" [routerLink]="['/tvshows']">Go Back</a>
+      </div>
+    </div>
+  </div>
+</div>

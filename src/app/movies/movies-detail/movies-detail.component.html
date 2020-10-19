@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <app-movie [movie]="movie" (selected)="nothing($event)"></app-movie>
+      <div class="card-action">
+        <a class="btn" [routerLink]="['/movies']">Go Back</a>
+        <a class="btn" (click)="delete()">Delete the movie</a>
+      </div>
+    </div>
+  </div>
+</div>

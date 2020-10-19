@@ -1,0 +1,6 @@
+<app-tv-shows-search (keyup)="lookUpList($event.target.value)"></app-tv-shows-search>
+<ul class="collection">
+  <li *ngFor="let movie of tvShows$ | async" class="collection-item avatar">
+    <app-tv-show [movie]="movie" (selected)="redirectTvShow($event)"></app-tv-show>
+  </li>
+</ul>
