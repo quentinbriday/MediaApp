@@ -1,0 +1,31 @@
+<!--you know you could reuse the search component ?-->
+<form class="form-container" ngForm #movieForm="ngForm" (ngSubmit)="lookupMovie(movieForm.value.title)" novalidate>
+
+  <label>Name of the movie :</label>
+  <input type="text" name="title" ngModel required minlength="2"/>
+
+  <button [disabled]="!movieForm.valid" type="submit">Lookup</button>
+</form>
+
+<div class="checkbox">
+  <label>
+    <input
+      type="checkbox"
+      [checked]="this.isPrivate"
+      (change)="this.isPrivate = !this.isPrivate"
+      ngModel/>
+    <span>Add to private collection</span>
+  </label>
+</div>
+
+<div *ngIf="movies.length > 0">
+  <ul class="collection">
+    <li *ngFor="let movie of movies" class="collection-item avatar">
+      <a (click)="addMovie(movie.onlineId)">
+        <img [src]="movie.poster" [alt]="movie.title"/>
+        <span class="title">{{movie.title}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<p *ngIf="movies.length <= 0">No movies found.</p>
