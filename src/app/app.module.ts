@@ -1,20 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { MoviesListComponent } from './movies/movies-list/movies-list.component';
-import { AppRoutes} from './app.routes';
-import { MoviesDetailComponent } from './movies/movies-detail/movies-detail.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { MoviesAddComponent } from './movies/movies-add/movies-add.component';
+import {AppComponent} from './app.component';
+import {AppHeaderComponent} from './components/app-header/app-header.component';
+import {AppRoutes} from './app.routes';
+import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MovieComponent } from './movies/movie/movie.component';
-import { SearchComponent } from './movies/search/search.component';
-import { InterceptorComponent } from './interceptor/interceptor.component';
-import {MoviesModule} from './movies/movies.module';
-import {TvShowsModule} from './tv-shows/tv-shows.module';
+import {InterceptorComponent} from './interceptor/interceptor.component';
+import {MoviesModule} from './components/movies/movies.module';
+import {TvShowsModule} from './components/tv-shows/tv-shows.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +19,7 @@ import {TvShowsModule} from './tv-shows/tv-shows.module';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, {useHash: true}),
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
@@ -33,4 +28,5 @@ import {TvShowsModule} from './tv-shows/tv-shows.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
